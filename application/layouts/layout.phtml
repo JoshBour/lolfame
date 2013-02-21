@@ -1,0 +1,67 @@
+<?php echo $this->doctype(); ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<?php echo $this->headMeta(); 
+
+#$this->headLink()->prependStylesheet($this->baseUrl().'/css/jquery-ui-1.10.0.custom.css');
+$this->headLink()->prependStylesheet($this->baseUrl().'/css/main.css');
+$this->headLink()->headLink(array('rel' => 'icon',
+                                  'href' => $this->baseUrl().'/images/favicon.ico'),
+                                  'PREPEND');
+echo $this->headLink();
+?>
+<title><?php echo isset($this->headTitle)?$this->headTitle:"LolFame"; ?>
+</title>
+
+<script src="<?php echo $this->baseUrl(). '/javascript/jquery-1.9.0.js';?>" type="text/javascript"></script>
+<script src="<?php echo $this->baseUrl(). '/javascript/main-1.0.0.js';?>" type="text/javascript"></script>
+
+</head>
+<body <?php echo isset($this->bodyClass)?'class="'.$this->bodyClass.'"':""?>>
+	<div id="wrapper">
+		<div id="header">
+			<div id="topcontent">
+				<?php if(Zend_Auth::getInstance()->hasIdentity()){
+					echo $this->partial('usermenu.phtml',array('user'=>Zend_Auth::getInstance()->getIdentity()));
+				}else{
+					echo $this->partial('connect.phtml');
+				}?>
+				<p class="clear" />
+			</div>
+			<div id="logo">
+				<a
+					href="<?php echo $this->url(array('controller'=>'index','action'=>'index'),'default',true); ?>"
+					title="Return home"> <img
+					src="<?php echo $this->baseUrl(); ?>/images/logo.png" alt="logo" />
+				</a>
+			</div>
+			<div id="wrap">
+				<div id="navbar">
+					<div id="navmenu">
+						<?php 
+						echo $this->navigation()->menu()->render();
+						?>
+					</div>
+					<!--					<div id="socialMedia">
+						<img src="images/fb_icon.png" alt="Facebook Page" />
+						<img src="images/twitter_icon.png" alt="Twitter Page" />
+	</div> -->
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			<?php
+			if (count($this->messages) > 0) {
+				printf("<div id='flash'>%s</div>", $this->messages[0]);
+			}
+			if(isset($this->errors)){
+				$this->Errors($this->errors);
+			}	
+			?>		
+			<?php echo $this->layout()->content; ?>
+		</div>
+		<div id="footer">LoLFame 2012. All rights reserved. Created
+			by Josh Bour.</div>
+	</div>
+</body>
+</html>

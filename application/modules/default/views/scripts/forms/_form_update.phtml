@@ -1,0 +1,24 @@
+<form class="<?php echo $this->element->getAttrib('class');?>"
+	action="<?php echo $this->element->getAction();?>"
+	method="<?php echo $this->element->getMethod();?>"
+	enctype="<?php echo $this->element->getEnctype(); ?>">
+	<div class="element">
+		<label for="avatar">Avatar:</label>
+		<?php echo $this->element->avatar;?>
+	</div>
+	<div class="element">
+		<label for="password">Password:</label>
+		<?php echo $this->element->password; ?>
+	</div>
+	<div class="element">
+		<label for="repassword">Re-Password:</label>
+		<?php echo $this->element->repassword; ?>
+	</div>
+	<div class="element">
+		<label for="email">Email:</label>
+		<?php echo $this->element->email; ?>
+	</div>	
+	<div class="element">
+		<?php echo $this->element->submit; ?>
+	</div>
+</form>

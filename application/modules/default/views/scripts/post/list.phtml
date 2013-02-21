@@ -1,0 +1,96 @@
+<?php
+	if(!empty($this->user)){
+		$posts = $this->user->getPosts();
+		if(!empty($posts)){
+			foreach($posts as $post):
+				// the user might be co author, so its better to find the owner
+				$owner = $post->getAuthor();
+				$isShared = false;
+				if($owner->getUsername() != $this->user->getUsername()){
+					$isShared = true;
+				}
+				$rated = $this->user->hasRated($post->getId());
+				$like = '';
+				$dislike = '';
+				if($rated != false){
+					if($rated->getAction() == 1){
+						$like = ' disabled';
+					}else if($rated->getAction() == 2){
+						$dislike = ' disabled';
+					}
+				}			
+			?>
+	<li>
+		<div class="post" data-post-id="<?php echo $post->getId(); ?>">
+			<div class="post-remove">
+				X
+			</div>
+			<div class="content-image">
+				<img src="<?php echo $this->baseUrl('/images/users/'.$owner->getAvatar()); ?>" />
+			</div>
+			<div class="content-body">
+				<div class="content-author">
+					<a href="<?php echo $this->url(array(
+													'controller' => 'account',
+													'action' => 'profile',
+													'name' => $owner->getUsername()
+													), 'profile'); ?>" class="author"><?php echo $owner->getUsername(); ?></a> 
+				</div>
+				<?php 
+					if($isShared){
+				?>
+				<div class="content-coauthor">
+					to <a href="<?php echo $this->url(array(
+													'controller' => 'account',
+													'action' => 'profile',
+													'name' => $this->user->getUsername()
+													), 'profile'); ?>" class="author"><?php echo $this->user->getUsername(); ?></a> 				
+				</div>
+				
+				<?php }?>
+				<div class="content-subject">
+					<?php echo $post->getSubject();?>
+				</div> 
+			</div>			
+			<div class="post-rate-bar">
+				<span class="like<?php echo $like; ?>">Like</span>
+				<span class="dislike<?php echo $dislike; ?>">Dislike</span>
+			</div>
+			<div class="post-rating">
+			<?php 
+				$ratings = $post->getRatingArray();
+				if(!empty($ratings)){
+				$likeNum = count($ratings['likes']);
+				$dislikeNum = count($ratings['dislikes']);
+				$total = $likeNum + $dislikeNum;
+				$likeWidth = (100/$total) * $likeNum;
+				$dislikeWidth = (100/$total) * $dislikeNum;
+				
+			?>
+				<span class="like-bar" style="width: <?php echo $likeWidth ?>%;"></span>
+				<span class="dislike-bar" style="width: <?php echo $dislikeWidth;?>%;"></span>
+			<?php } ?>
+			</div>
+			<div class="content-date">
+				<span><?php echo $post->getPostTime();  ?></span> ago
+			</div>
+			<div class="comments">
+				<span class="show-all-comments">Show all comments</span>
+				<ul class="comment-list">
+					<?php 
+						// load the comments in an awesome ajax way
+					?>
+				</ul>
+				<div class="add-comment">
+					<?php echo $this->commentForm;?>
+				</div>
+			</div>
+		</div>
+	</li>
+	<?php 	endforeach;
+
+		}else{
+			echo 'There are no posts available.';
+		}
+	}
+	?>

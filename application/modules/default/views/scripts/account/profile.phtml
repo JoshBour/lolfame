@@ -1,0 +1,93 @@
+<div id="sidebar">
+	<div id="user-profile">
+		<h2 id="profile-username"><?php echo $this->user->getUsername(); ?></h2>
+		<div class="profile-image">
+			<img src="<?php echo $this->baseUrl('images/users/'.$this->user->getAvatar());?>"/>
+		</div>
+		<div class="profile-info">
+			
+			<div class="profile-fragment">
+				<span class="profile-icon">
+					<img src="<?php echo $this->baseUrl('images/fame.png');?>" />
+				</span>
+				<span class="profile-label-container">
+					Fame: 
+				</span>
+				<span class="profile-text-container">
+					<?php echo $this->user->getFame();?>
+				</span>
+			</div>
+
+			<div class="profile-fragment">
+				<span class="profile-icon">
+					<img src="<?php echo $this->baseUrl('images/summoners.png');?>" />
+				</span>			
+				<span class="profile-label-container">
+					Summoners: 
+				</span>
+				<span class="profile-text-container">				
+					<?php 
+						$summoners = $this->user->getSummoners();
+						if(!empty($summoners)){
+							foreach($summoners as $summoner)
+								echo '<a href="' . $this->url(array('controller'=>'summoner','action'=>'view','region' => $summoner->getRegion(),'name'=>$summoner->getName()),'view-summoner').'">'. $summoner->getName() . '</a> ';
+						}else{
+							echo 'No Summoners yet registered';
+						}
+					?>
+				</span>				
+			</div>
+
+			<div class="profile-fragment">
+				<span class="profile-icon">
+					<img src="<?php echo $this->baseUrl('images/position.png');?>" />
+				</span>				
+				<span class="profile-label-container">
+					Positions: 
+				</span>
+				<span class="profile-text-container">						
+					<?php 
+						$positions = $this->user->getPositions();
+						if(!is_null($positions)){
+							foreach($this->user->getPositions() as $position)
+											echo $position . '<br />';
+						}else{
+							echo 'No positions yet registered.';
+						}
+					?>
+				</span>
+			</div>
+
+			<div class="profile-fragment">
+				<span class="profile-icon">
+					<img src="<?php echo $this->baseUrl('images/team.png');?>" />
+				</span>		
+				<span class="profile-label-container">		
+					Team:
+				</span>
+				<span class="profile-text-container">					
+					<?php 
+						$team = $this->user->getTeam();
+						if(!is_null($team)){
+							echo $team->getName();
+						}else{
+							echo 'Not currently in any team.';
+						}
+					?>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main">
+	<div id="post-add-menu">
+	<?php
+		echo $this->postForm; 
+	?>
+	</div>
+	<div id="posts">
+		<ul id="post-list">
+			<?php // load the posts in an awesome ajax way ?>
+		</ul>
+	</div>
+</div>

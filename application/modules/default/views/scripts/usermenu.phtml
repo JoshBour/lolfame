@@ -1,0 +1,29 @@
+<div id="usermenu">
+<?php $user = Zend_Auth::getInstance()->getIdentity();?>
+
+	<div id="famemenu">
+	<h3>Fame:</h3>
+		<?php echo $user->getFame();?>
+	</div>
+	<div id="famebar">
+		<span id="xpbar" style="width:<?php echo ($user->getExperience() * 4)?>px">
+		</span>
+		<div class="inner">
+			<?php  echo $user->getExperience();?>/100
+			</div>
+	</div>
+	<ul class="topnav">
+		<li>
+	<?php 
+		echo '<img src="' . $this->baseUrl('images/users/'.$user->getAvatar()).'" />';?>
+		<?php 
+		echo '<a href="'. $this->url(array('controller'=>'account','action'=>'profile', 'name' => $user->getUsername()),'profile') . '">' .$this->escape($this->user->getUsername()) . '</a>';
+		?>
+			<ul class="subnav">
+				<li><a href="<?php echo $this->url(array('controller' =>'summoner','action'=>'list'),'default',true);?>">Summoners</a></li>
+				<li><a href="<?php echo $this->url(array('controller' =>'account','action'=>'update'), 'default',true);?>">Settings</a></li>
+				<li><a href="<?php echo $this->url(array('controller' =>'account','action'=>'logout'),'default',true);?>">Logout</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>

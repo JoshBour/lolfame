@@ -1,0 +1,41 @@
+<?php 
+if(!empty($this->comments)){
+	foreach($this->comments as $comment):
+		$author = Default_Model_DbTable_Account::findById($comment->getAuthorId());
+	?>
+<li>
+	<div id="comment-<?php echo $comment->getId();?>" class="comment">
+		<?php 
+			if($this->user->getUsername() == $author->getUsername()):
+		?>
+		<div class="comment-remove">X</div>
+		<?php endif;?>
+		<div class="content-image">
+			<img
+				src="<?php echo $this->baseUrl('/images/users/'.$author->getAvatar()); ?>" />
+		</div>
+		<div class="content-body">
+			<div class="content-author">
+				<a
+					href="<?php echo $this->url(array(
+																		'controller' => 'account',
+																		'action' => 'profile',
+																		'name' => $author->getUsername()
+					), 'profile'); ?>" class="author"><?php echo $author->getUsername(); ?></a> 
+			</div>
+			<div class="content-date">
+				<span class="comment-time"><?php echo $comment->getPostTime();  ?></span>
+				ago commented:
+			</div>
+			<div class="content-subject">
+				<?php echo $comment->getContent();?>
+			</div>
+		</div>
+	</div>
+</li>
+<?php 	
+endforeach;
+}else{
+	echo '<div class="not-found">There are no comments yet.</div>';
+}
+?>

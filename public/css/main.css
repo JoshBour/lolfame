@@ -1,0 +1,953 @@
+/*
+ Stamoulakis website css
+ Copyright Josh Bour 2012.
+
+ */
+
+/* ===== global styles ===== */
+
+/*
+ reset the styles
+
+ */
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+html, body, span, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, img, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, embed {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/*textarea{
+ resize:none;
+ }*/
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* lets start with the basic dom related stuff */
+body {
+	background: #070707;
+	font-family: 'Source Sans Pro', sans-serif;
+	color: #bbb;
+	font-size: 12px;
+}
+
+div {
+	display: block;
+}
+
+h1 {
+	color: #797979;
+	font-size: 17px;
+	border-bottom: 1px solid #797979;
+	text-align: center;
+	margin: 5px;
+}
+
+h2 {
+	color: #94999C;
+	font: bold 13px "Century Gothic";
+	font-size: 16px;
+	text-align: center;
+	padding: 5px;
+}
+
+h3 {
+	color: #405B65;
+	margin: 5px 0;
+	font-size: 15px;
+}
+
+strong {
+	font-weight: bold;
+	color: #666;
+}
+
+a {
+	color: #B36262;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #B36262;
+}
+
+a:hover {
+	color: #c67782;
+	text-decoration: underline;
+}
+
+input, select {
+	outline: none;
+	background: #333 url('../images/input_bg.png') repeat;
+	padding: 7px;
+	border-radius: 1px;
+	border: 1px solid #666;
+	color: #ccc;
+}
+
+select {
+	background: #333;
+}
+
+input[type="checkbox"] {
+	background: none;
+	border: none;
+}
+/* Public class declaration goes here */
+p.clear {
+	margin: 0px;
+	clear: both;
+}
+
+.not-found {
+	color: #aaa;
+	margin-left: 60px;
+	padding-top: 10px;
+}
+
+/* Specific classes go here */
+
+.message {
+	text-align: center;
+	padding: 5px;
+	color: #754646;
+}
+
+/*   Main body style start here   */
+#wrapper {
+	margin: 0 auto;
+	border-radius: 5px;
+	background:#090909;
+	position: relative;
+}
+
+/* Here go the header-related stuff  */
+#header {
+	background: #070707;
+	font-weight: bold;
+	border-bottom: 2px solid #411a1a;
+	overflow: hidden;
+}
+
+#logo {
+	background: transparent url('../images/morgana.png') no-repeat;
+	height: 130px;
+	width: 957px;
+	margin: 0 auto;
+}
+
+#logo img {
+	margin: 35px 0 0 25px;
+}
+
+#wrap {
+	border-top: 1px solid #222;
+	border-bottom: none;
+	background: #0f0f0f;
+	height: 37px;
+}
+
+#navbar {
+	width: 957px;
+	margin: 0 auto;
+	height: 37px;
+}
+
+#navbar a {
+	color: #a5a5a5;
+}
+
+#navmenu {
+	float: left;
+	width: 450px;
+	height: 38px;
+}
+
+#navmenu ul {
+	list-style: none;
+	width: 480px;
+}
+
+#navmenu ul li {
+	z-index: 1232;
+	float: left;
+	padding: 10.5px 0;
+}
+
+#navmenu li:last-child {
+	border: none;
+}
+
+#navmenu li a {
+	padding: 15px;
+	color: rgba(165, 165, 165, 10);
+	font: bold 13px Arial, Helvetica, sans-serif;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-transition: color 0.2s linear;
+	-moz-transition: color 0.2s linear;
+	-o-transition: color 0.2s linear;
+	transition: color 0.2s linear;
+}
+
+#navmenu a:hover {
+	color: rgba(80, 80, 80, 100);
+}
+
+#navmenu #current {
+	border-bottom: 2px solid #a29f9f;
+}
+
+#searchBox {
+	margin-left: 185px;
+	float: left;
+	height: 38px;
+	margin-top: 1px;
+}
+
+#topcontent {
+	font-size: 1em;
+	border-bottom: 2px solid #222;
+	background: #252525;
+	background-image: linear-gradient(bottom, rgb(34, 34, 34) 18%,
+	rgb(45, 46, 46) 58% );
+	background-image: -o-linear-gradient(bottom, rgb(34, 34, 34) 18%,
+	rgb(45, 46, 46) 58% );
+	background-image: -moz-linear-gradient(bottom, rgb(34, 34, 34) 18%,
+	rgb(45, 46, 46) 58% );
+	background-image: -webkit-linear-gradient(bottom, rgb(34, 34, 34) 18%,
+	rgb(45, 46, 46) 58% );
+	background-image: -ms-linear-gradient(bottom, rgb(34, 34, 34) 18%,
+	rgb(45, 46, 46) 58% );
+	box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.15);
+}
+
+#usermenu, #connectPanel {
+	width: 957px;
+	margin: 0 auto;
+}
+
+#connectPanel {
+	padding: 5px;
+}
+
+#usermenu {
+	width: 957px;
+	margin: 0 auto;
+	padding: 0 10px;
+}
+
+#famemenu {
+	margin-right: 35px;
+	margin-top: 10px;
+}
+
+#famemenu h3 {
+	margin: 0 5px 0 0;
+	display: inline;
+}
+
+#famebar {
+	background: #111;
+	width: 400px;
+	height: 35px;
+	border-left: 1px solid #222;
+	border-right: 2px solid #222;
+	text-align: center;
+	position: relative;
+	margin-left: 150px;
+}
+
+span#xpbar {
+	display: block;
+	max-width: 400px;
+	background: #333 url('../images/xpbar.png') repeat-x;
+	height: 35px;
+	float: left;
+}
+
+#famebar, #famemenu {
+	float: left;
+}
+
+ul.topnav {
+	position: relative;
+	display: inline-table;
+	float: right;
+}
+
+ul.topnav img {
+	width: 35px;
+	height: 35px;
+	float: left;
+	vertical-align: middle;
+}
+
+ul.topnav ul {
+	display: none;
+}
+
+ul.topnav li:hover > ul {
+	display: block;
+}
+
+ul.topnav:after {
+	content: "";
+	clear: both;
+	display: block;
+}
+
+ul.topnav li {
+	float: left;
+}
+
+ul.topnav li:hover {
+	background: #333;
+	background-image: linear-gradient(top, rgb(48, 48, 48) 0%,
+	rgb(33, 33, 33) 23% );
+	background-image: -o-linear-gradient(top, rgb(48, 48, 48) 0%,
+	rgb(33, 33, 33) 23% );
+	background-image: -moz-linear-gradient(top, rgb(48, 48, 48) 0%,
+	rgb(33, 33, 33) 23% );
+	background-image: -webkit-linear-gradient(top, rgb(48, 48, 48) 0%,
+	rgb(33, 33, 33) 23% );
+	background-image: -ms-linear-gradient(top, rgb(48, 48, 48) 0%,
+	rgb(33, 33, 33) 23% );
+}
+
+ul.topnav li a {
+	display: inline-block;
+	padding: 10px 20px 10px 20px;
+	color: #bbb;
+	text-decoration: none;
+}
+
+ul.topnav li:hover a {
+	color: #ccc;
+}
+
+ul.topnav ul {
+	background: #111;
+	border-radius: 0px;
+	padding: 0;
+	position: absolute;
+	top: 100%;
+	width: 100%;
+}
+
+ul.topnav ul li {
+	float: none;
+	border-bottom: 1px solid #444;
+}
+
+ul.topnav ul li:first-child {
+	border-top: 1px solid #444;
+}
+
+ul.topnav ul li:last-child {
+	border-top: none;
+}
+
+ul.topnav ul li a {
+	color: #fff;
+	text-align: center;
+	display: block;
+	padding: 10px 20px 10px 20px;
+	border-left: 1px solid transparent;
+	border-right: 1px solid transparent;
+}
+
+ul.topnav ul li a:hover {
+	background-image: linear-gradient(bottom, rgb(48, 48, 48) 0%,
+	rgb(33, 33, 33) 23% );
+	background-image: -o-linear-gradient(bottom, rgb(48, 48, 48) 0%,
+	rgb(33, 33, 33) 23% );
+	background-image: -moz-linear-gradient(bottom, rgb(48, 48, 48) 0%,
+	rgb(33, 33, 33) 23% );
+	background-image: -webkit-linear-gradient(bottom, rgb(48, 48, 48) 0%,
+	rgb(33, 33, 33) 23% );
+	background-image: -ms-linear-gradient(bottom, rgb(48, 48, 48) 0%,
+	rgb(33, 33, 33) 23% );
+	border-left: 1px solid #444;
+	border-right: 1px solid #444;
+}
+
+ul.topnav ul ul {
+	position: absolute;
+	left: 100%;
+}
+
+/* here go the body related stuff */
+#content {
+	min-height: 500px;
+	width: 965px;
+	margin: 10px auto 10px auto;
+	overflow: hidden;
+}
+#invalid {
+	margin: 20px;
+	color: #777;
+	word-wrap: break-word;
+}
+
+#register {
+	padding: 7px;
+	border: 1px solid #e5e5e5;
+	color: #3a3a3a;
+	width: 300px;
+	margin: 0 auto;
+	padding: 20px 100px;
+}
+
+ul#summonerList {
+	background: #000;
+	margin: 0 auto;
+	border: 1px solid #111;
+	margin: 5px;
+	padding: 5px 0;
+	text-align: left;
+	max-height: 400px;
+	overflow: auto;
+	border: 1px solid #222;
+}
+
+ul#summonerList li {
+	padding: 10px;
+	border-left: 1px solid #222;
+	border-right: 1px solid #222;
+	border-bottom: 1px solid #222;
+	background: #555;
+	margin: 5px auto;
+	background: #252525;
+	/* 	background-image: linear-gradient(bottom, rgb(15,15,15) 34%, rgb(36,36,36) 71%);
+	 background-image: -o-linear-gradient(bottom, rgb(15,15,15) 34%, rgb(36,36,36) 71%);
+	 background-image: -moz-linear-gradient(bottom, rgb(15,15,15) 34%, rgb(36,36,36) 71%);
+	 background-image: -webkit-linear-gradient(bottom, rgb(15,15,15) 34%, rgb(36,36,36) 71%);
+	 background-image: -ms-linear-gradient(bottom, rgb(15,15,15) 34%, rgb(36,36,36) 71%); */
+}
+
+ul#summonerList li:first-child {
+	border-top: 1px solid #222;
+}
+
+ul#summonerList li:hover {
+	background-image: linear-gradient(bottom, rgb(26,26,26) 34%, rgb(36,36,36) 71%);
+	background-image: -o-linear-gradient(bottom, rgb(26,26,26) 34%, rgb(36,36,36) 71%);
+	background-image: -moz-linear-gradient(bottom, rgb(26,26,26) 34%, rgb(36,36,36) 71%);
+	background-image: -webkit-linear-gradient(bottom, rgb(26,26,26) 34%, rgb(36,36,36) 71%);
+	background-image: -ms-linear-gradient(bottom, rgb(26,26,26) 34%, rgb(36,36,36) 71%);
+}
+
+ul#summonerList a {
+	display: inline-block;
+	color: #4A85B5;
+	font: bold 13px sans-serif;
+	margin-left: 15px;
+}
+
+.editSummonerMenu {
+	display: inline;
+	margin-left: 20px;
+	float: right;
+}
+
+ul#summonerList span {
+	margin-left: 15px;
+}
+
+ul#summonerList a:hover {
+	text-decoration: none;
+	color: #6CA1CC;
+}
+
+#userinfo {
+	padding: 5px;
+	text-align: left;
+	border-bottom: 1px solid #202020;
+}
+
+#userinfo img {
+	display: block;
+	margin: 5px;
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+}
+
+.standard-form .element {
+	margin-bottom: 20px;
+}
+
+.standard-form {
+	width: 500px;
+	margin: 25px auto;
+	overflow: hidden;
+	text-align: left;
+}
+
+.standard-form input, select {
+	vertical-align: middle;
+	width: 340px;
+	margin-left: 35px;
+	border-radius: 2px;
+	cursor: pointer;
+}
+
+.standard-form label {
+	width: 100px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.standard-form input[type="submit"] {
+	float: right;
+	margin-right: 42px;
+	width: 120px;
+}
+
+#main {
+	width: 625px;
+	float: left;
+	padding:0 5px 5px 5px;
+	background:#090909;
+}
+
+#main h3 {
+	text-align: center;
+}
+
+
+#main .header {
+	display: block;
+	border-bottom: 1px solid #222;
+	background: #252525;
+	background-image: linear-gradient(bottom, rgb(34, 34, 34) 18%,
+	rgb(45, 46, 46) 58% );
+	background-image: -o-linear-gradient(bottom, rgb(34, 34, 34) 18%,
+	rgb(45, 46, 46) 58% );
+	background-image: -moz-linear-gradient(bottom, rgb(34, 34, 34) 18%,
+	rgb(45, 46, 46) 58% );
+	background-image: -webkit-linear-gradient(bottom, rgb(34, 34, 34) 18%,
+	rgb(45, 46, 46) 58% );
+	background-image: -ms-linear-gradient(bottom, rgb(34, 34, 34) 18%,
+	rgb(45, 46, 46) 58% );
+	box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.15);
+	padding: 10px 0;
+}
+
+
+#main h1, #sidebar h1 {
+	text-align: left;
+	color:#666;
+	background: #333 url('../images/tab-list-dark.png') 50% 50%;
+	padding:7px;
+	border:1px solid #222;
+}
+
+#main h2, #login h2 {
+	padding: 5px;
+	border-radius: 5px;
+	color: #4F617A;
+	font-size: 14px;
+	display: inline;
+	text-align: left;
+}
+
+#sidebar {
+	float: left;
+	width: 288px;
+	padding:0 5px 5px 5px;
+	border-left: 1px solid #222;
+}
+
+#sidebar h3 {
+	text-align: center;
+}
+
+#sidebar ul {
+	margin: 5px;
+}
+
+#sidebar li {
+	background: transparent url('../images/list_icon.png') no-repeat left center;
+	padding-left: 35px;
+	margin-top: 5px;
+}
+
+#post-add-menu .post-form input{
+	background:#151515;
+	border-color:#222;
+}
+
+#post-add-menu .post-form label{
+	padding:0px;
+}
+
+.profile #wrapper{
+	background:#090909;
+}
+
+.profile #content{
+	border:none;
+	margin-top:10px;
+}
+
+.profile #main {
+	width: 550px;
+}
+
+.profile #sidebar{
+	border:none;
+	margin:0 50px;
+}
+
+.post-form label {
+	padding: 0 5px;
+}
+
+.post-form {
+	width: 500px;
+	padding: 5px;
+	margin: 0 auto;
+}
+
+.post-form input[type|='text'] {
+	width: 380px;
+}
+
+.post-form input[type='submit']:hover {
+	border: 1px solid #aaa;
+	cursor: pointer;
+}
+
+ul#post-list {
+	display: block;
+}
+
+ul#post-list li {
+	display: block;
+	padding: 10px;
+	border-bottom: 1px solid #151515;
+}
+
+ul#post-list li:first-child{
+	border-top:1px solid #151515;
+}
+
+.post {
+	overflow: hidden;
+	width: 500px;
+	margin: 0 auto;
+}
+
+.content-body {
+	margin: 0 15px;
+}
+
+.comment-remove, .post-remove {
+	float: right;
+	display: none;
+	cursor: pointer;
+	margin-right: 25px;
+}
+
+.content-author, .content-coauthor, .content-date, .post-form .element {
+	display: inline;
+}
+
+.content-author a ,.content-coauthor a{
+	color: #658B99;
+	font-style: normal;
+	font-weight: bold;
+}
+
+.content-date {
+	color: #8A959C;
+}
+
+.content-subject {
+	padding: 5px;
+}
+
+.post-rate-bar {
+	display: inline-block;
+}
+
+.post-rate-bar span {
+	margin: 0 5px 0 0;
+	cursor: pointer;
+}
+
+.post-rate-bar span {
+	color: #677B82;
+}
+
+.post-rate-bar img {
+	margin-right: 5px;
+	float: left;
+}
+
+.post-rating {
+	display: inline-block;
+	width: 100px;
+	margin: 0 5px 1px 5px;
+	background: #555;
+	height: 5px;
+}
+
+.post-rating span {
+	float: left;
+	height: 5px;
+}
+
+.post-rating span.like-bar {
+	background: #417500;
+}
+
+.post-rating span.dislike-bar {
+	background: #821E1E;
+}
+
+.post-rate-bar span:hover, .comments span:hover {
+	text-decoration: underline;
+}
+
+.content-date {
+	text-align: right;
+}
+
+.content-image img {
+	width: 50px;
+	height: 50px;
+	padding: 0 5px;
+	vertical-align: middle;
+	float: left;
+}
+
+.comments {
+	display: inline;
+}
+
+.comments span {
+	cursor: pointer;
+	margin-left: 5px;
+}
+
+.comment-list {
+	display: none;
+}
+
+.add-comment form {
+	padding: 5px 0 0 0;
+	width: 380px;
+	margin: 0 auto;
+}
+
+.add-comment form input {
+	padding: 5px;
+	background: #151515;
+	border: 1px solid #222;
+}
+
+ul#post-list li ul.comment-list li {
+	margin: 0 auto;
+	border-bottom: 1px solid #191919;
+	border-left: none;
+	border-right: none;
+	width: 375px;
+	padding-left: 0;
+}
+
+ul#post-list li ul.comment-list li:first-child {
+	margin-top: 5px;
+	border-top: 1px solid #191919;
+}
+
+/*
+ This will be changed once maximum displayed comments are implemented
+ */
+ul#post-list li ul.comment-list {
+	max-height: 400px;
+	overflow-y: auto;
+}
+
+ul#post-list li ul.comment-list .comment-remove {
+	margin-right: 0;
+}
+
+.comment-list .content-image img {
+	max-width: 30px;
+	max-height: 30px;
+	margin-top: 2px;
+}
+
+img#userAvatar {
+	display: block;
+	width: 150px;
+	height: 150px;
+	margin: 15px auto;
+	border: 10px solid #222;
+}
+
+#flash {
+	padding: 10px;
+	border-bottom: 1px solid #411a1a;
+	font-size: 13px;
+	color: #548FBA;
+	text-align: center;
+}
+
+ul#errors {
+	list-style: square;
+	color: #B05A5A;
+	background: #111;
+	font-weight: bold;
+	padding-left: 65px;
+	margin: 15px 0 10px 0;
+}
+
+.inner {
+	position: absolute;
+	padding-top: 10px;
+	left: 50%;
+}
+
+.verified {
+	color: green;
+}
+
+span.verified, span.pending {
+	margin-left: 160px;
+}
+
+.unverified {
+	color: red;
+}
+
+#user-profile {
+	margin: 0 auto;
+	display: block;
+	padding: 7px;
+	background: #090909;
+}
+
+.profile-fragment {
+	margin: 5px;
+	padding: 15px;
+	background: #111;
+	text-align: left;
+	border: 1px solid #090909;
+}
+
+.profile-fragment:hover {
+	border: 1px solid #151515;
+}
+
+.profile-fragment .profile-label-container {
+	color: #405B65;
+	margin-right: 5px;
+}
+
+.profile-text-container, .profile-label-container {
+	display: inline-block;
+}
+
+.profile-fragment a {
+	color: #ccc;
+	margin: 5px;
+}
+
+.profile-fragment a:hover {
+	color: #323456;
+}
+
+.profile-fragment img {
+	margin: 0;
+	width: 25px;
+	height: 25px;
+	border: none;
+	vertical-align: middle;
+}
+
+.profile-image img {
+	max-width: 150px;
+	height: auto;
+	margin: 0 auto 10px auto;
+	border: 7px solid #111;
+	display: block;
+}
+
+span.disabled {
+	color: #ccc;
+	cursor: default;
+}
+
+span.disabled:hover {
+	text-decoration: none;
+}
+
+#footer {
+	width: 957px;
+	margin: 20px auto 0 auto;
+	text-align: center;
+	border-top:1px solid #151515;
+	padding:5px;
+}
+
+/* ------------ tabs widget ------------ */
+#tabs {
+	position: relative;
+}
+.tab-list {
+	display: block;
+	padding-left: 5px;
+	background: #333 url('../images/tab-list-dark.png') 50% 50%;
+	border: 1px solid #222;
+}
+
+.tab-list li {
+	display: inline-block;
+}
+
+.tab-list li span {
+	display: block;
+	padding: 10px;
+	font-size: 13px;
+	color: #bbb;
+}
+
+/* to be changed back to 375px when image/video tab is added  */
+.tab-list li span#add-menu {
+	margin-left: 365px;
+}
+
+.tab-list li span:hover {
+	text-decoration: none;
+	color: #fff;
+	cursor: pointer;
+	border-bottom: 1px solid #b43224;
+}
+
+.tab-active {
+	border-bottom: 1px solid #aaa;
+}

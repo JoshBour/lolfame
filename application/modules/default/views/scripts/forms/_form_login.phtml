@@ -1,0 +1,19 @@
+<form class="<?php echo $this->element->getAttrib('class');?>"
+	action="<?php echo $this->element->getAction();?>"
+	method="<?php echo $this->element->getMethod();?>">
+	<div class="element">
+		<label for="username">Username:</label>
+		<?php echo $this->element->username; ?>
+	</div>
+	<div class="element">
+		<label for="password">Password:</label>
+		<?php echo $this->element->password; ?>
+	</div>
+	<div class="element">
+		<label for="duration">Stay logged in:</label>
+		<?php echo $this->element->duration; ?>
+	</div>
+	<div class="element">
+		<?php echo $this->element->submit; ?>
+	</div>
+</form>

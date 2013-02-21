@@ -1,0 +1,58 @@
+<div id="main">
+	<h1>
+		<?php echo $this->user->getUsername();?>
+		's Summoners
+	</h1>
+	<ul id="summonerList">
+		<?php 
+		if(!empty($this->userSummoners)){
+			foreach($this->userSummoners as $summoner){
+				echo '<li>
+						<a href="' . $this->url(array(
+						'controller' => 'summoner',
+						'action' => 'view',
+						'name' => $summoner->getName(),
+						'region' => $summoner->getRegion()),'view-summoner') .'">';
+				echo '[' . $summoner->getRegion() . '] ';
+				echo $summoner->getName();
+				echo '</a>
+					 <div class="editSummonerMenu">';
+				echo '<a href="' . $this->url(array(
+						'controller' => 'summoner',
+						'action' => 'edit',
+						'region' => $summoner->getRegion(),
+						'name' => $summoner->getName()),'edit-summoner') .'">Edit</a>';
+				echo '<a href="' . $this->url(array(
+						'controller' => 'summoner',
+						'action' => 'delete',
+						'name' => $summoner->getName(),
+						'region' => $summoner->getRegion()),'default') .'" class="sumDelete">Delete</a>';
+				$status = $summoner->getStatus();
+				if($status == 2){
+					echo '<span class="verified">&#10003; verified</span>';
+				}else if($status == 1){
+					echo '<span>&#63; pending</span>';
+				
+				}else{
+					echo '<span class="unverified">&#10007; unverified</span>';
+				}				
+				echo '</div>';			
+
+				echo '</li>';
+
+			}
+		}else{
+			echo 'You have no Summoners in your list, try adding one using the link to the right.';
+		}
+		?>
+	</ul>
+</div>
+<div id="sidebar">
+	<h1>Actions</h1>
+	+ <a
+		href="<?php echo $this->url(array(
+								'controller' => 'summoner',
+								'action' => 'add'),'default',true);?>">Add a new Summoner</a>
+</div>
+
+<p class="clear" />

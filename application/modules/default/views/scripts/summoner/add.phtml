@@ -1,0 +1,23 @@
+<div id="main">
+	<h1>Add a Summoner to your account</h1>
+	<?php
+	if(isset($this->errors) && !empty($this->errors)){
+		$this->Errors($this->errors);
+	}
+	?>
+	
+	<?php  echo $this->form; ?>
+</div>
+<div id="sidebar">
+	<h1>Useful Notes</h1>
+	<ul>
+		<li>In order to validate your account and since Riot doesn't have a public API (yet), we need you to send
+			a <a href="<?php echo $this->baseUrl('/images/validation_example.jpg');?>" target="_blank">screenshot of the league client</a> and our team will validate it.
+		</li>
+		<li>Once validated, NO ONE will be able to use the summoner's name, except from you.</li>
+		<li>You can leave the validation field empty and return to it later.</li>
+		<li>Adding Summoners that don't belong to you results in an account suspension, no exceptions.</li>
+	</ul>
+</div>
+
+<p class="clear" />

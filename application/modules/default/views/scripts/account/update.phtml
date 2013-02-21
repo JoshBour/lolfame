@@ -1,0 +1,24 @@
+<div id="main">
+	<h1>Update your account info</h1>
+	<?php
+	$user = Zend_Auth::getInstance()->getIdentity();
+	echo '<img id="userAvatar" src="'.$this->baseUrl('images/users/'.$user->getAvatar()).'" alt="user avatar" />';
+	?>
+	
+	<?php  echo $this->form; ?>
+</div>
+<div id="sidebar">
+	<h1>Useful Notes</h1>
+	<ul>
+		<li>Not an account owner? You can click <a href="register.php">here to
+				register</a>
+		</li>
+		<li>Make sure to NEVER give away your account details. We would never
+			ask for them!</li>
+		<li>Having connectivity issues? You can <a href="contact.php">send us
+				an email.</a>
+		</li>
+	</ul>
+</div>
+
+<p class="clear" />

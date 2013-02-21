@@ -1,0 +1,27 @@
+<div id="main">
+	<h1>Register a new account</h1>
+	<?php
+	if(isset($this->errors)){
+		$this->Errors($this->errors);
+	}
+	?>
+	<?php echo $this->form; ?>
+</div>
+<div id="sidebar">
+	<h1>Useful Notes</h1>
+	<ul>
+		<li>The username is <strong>NOT</strong> the ingame name, you will be
+			able to add that <strong>later on.</strong>
+		</li>
+		<li>The email is requested so that you can get informed about your
+			position etc.</li>
+		<li>You don't have to make multiple accounts for <strong>multiple
+				heros</strong>, you can add as many as you want to just <strong>one.</strong>
+		</li>
+		<li>By clicking the "Register" button you agree to the <a
+			href="tos.php">Terms Of Use</a>.
+		</li>
+	</ul>
+</div>
+
+<p class="clear" />

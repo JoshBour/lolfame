@@ -1,0 +1,22 @@
+<form class="<?php echo $this->element->getAttrib('class');?>"
+	action="<?php echo $this->element->getAction();?>"
+	method="<?php echo $this->element->getMethod();?>"
+	enctype="<?php echo $this->element->getEnctype(); ?>">
+	<div class="element">
+		<label for="name">Name:</label>
+		<?php echo $this->element->name; ?>
+	</div>
+	<div class="element">
+		<label for="region">Region:</label>
+		<?php echo $this->element->region; ?>
+	</div>
+	<?php if(isset($this->element->file)){?>
+	<div class="element">
+		<label for="file">Validate:</label>
+		<?php echo $this->element->file;?>
+	</div>
+	<?php }?>
+	<div class="element">
+		<?php echo $this->element->submit; ?>
+	</div>
+</form>

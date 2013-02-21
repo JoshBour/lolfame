@@ -1,0 +1,36 @@
+<?php 
+if(!empty($this->comments)){
+	foreach($this->comments as $comment):
+	$author = Default_Model_DbTable_Account::findById($comment->getAuthorId());
+	?>
+<li>
+	<div class="comment-<?php echo $comment->getId();?>">
+		<div class="content-image">
+			<img
+				src="<?php echo $this->baseUrl('/images/users/'.$author->getAvatar()); ?>" />
+		</div>
+		<div class="content-body">
+			<div class="content-author">
+				<span><a
+					href="<?php echo $this->url(array(
+																		'controller' => 'account',
+																		'action' => 'profile',
+																		'name' => $author->getUsername()
+					), 'profile'); ?>"><?php echo $author->getUsername(); ?> </a> </span>
+			</div>
+			<div class="content-date">
+				<?php echo $comment->getPostTime();  ?>
+				ago posted:
+			</div>
+			<div class="content-subject">
+				<?php echo $comment->getContent();?>
+			</div>
+		</div>
+	</div>
+</li>
+<?php 	
+endforeach;
+}else{
+	echo 'There are no comments yet.';
+}
+?>

@@ -1,0 +1,9 @@
+<form id="<?php echo $this->element->getAttrib('id');?>"
+	action="<?php echo $this->element->getAction();?>"
+	class="<?php echo $this->element->getAttrib('class');?>"
+	method="<?php echo $this->element->getMethod();?>">
+	<div class="element">
+		<label for="username">Add a post:</label>
+		<?php echo $this->element->status; ?>
+	</div>
+</form>
